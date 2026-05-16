@@ -1,7 +1,7 @@
 // ===== BAT DAU CAU HINH SUPABASE =====
 // Sau khi tạo project Supabase, thay 2 giá trị bên dưới.
-const SUPABASE_URL = 'DIEN_SUPABASE_URL_CUA_BAN';
-const SUPABASE_ANON_KEY = 'DIEN_SUPABASE_ANON_KEY_CUA_BAN';
+const SUPABASE_URL = 'https://ivmiewdozlldkfgaoqjl.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_3sQmFYemtAvMvJVaB2eHJg_v2XBmqgu';
 // ===== KET THUC CAU HINH SUPABASE =====
 
 // ===== BAT DAU HAM khoiTaoFormLead =====
@@ -18,14 +18,14 @@ form?.addEventListener('submit', async (event) => {
 
   const data = new FormData(form);
   const lead = {
-    ten_cua_hang: data.get('ten_cua_hang')?.toString().trim(),
-    so_dien_thoai: data.get('so_dien_thoai')?.toString().trim(),
-    email: data.get('email')?.toString().trim() || null,
-    nganh_nghe: data.get('nganh_nghe')?.toString().trim() || null,
-    nhu_cau: data.get('nhu_cau')?.toString().trim() || 'ho_tro_nhap_lieu',
-    nguon: 'alobiz.vn',
-    trang_thai: 'moi_dang_ky',
-  };
+  ten_cua_hang: data.get('ten_cua_hang')?.toString().trim(),
+  so_dien_thoai: data.get('so_dien_thoai')?.toString().trim(),
+  email: data.get('email')?.toString().trim() || null,
+  nganh_nghe: data.get('nganh_nghe')?.toString().trim() || null,
+  nhu_cau_quan_tam: data.get('nhu_cau')?.toString().trim() || 'ho_tro_nhap_lieu',
+  nguon: 'landing_page',
+  trang_thai: 'moi_dang_ky',
+};
 
   if (!lead.ten_cua_hang || !lead.so_dien_thoai) {
     hienThongBao('Vui lòng nhập tên cửa hàng và số điện thoại.', true);
@@ -39,7 +39,7 @@ form?.addEventListener('submit', async (event) => {
 
   try {
     const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    const { error } = await supabase.from('landing_leads').insert([lead]);
+    const { error } = await supabase.from('khach_hang_tiem_nang').insert([lead]);
 
     if (error) throw error;
 

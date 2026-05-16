@@ -1,178 +1,215 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AloBiz - Quản lý kho & bán hàng</title>
-  <meta name="description" content="AloBiz giúp hộ kinh doanh quản lý kho, bán hàng, công nợ, hóa đơn và báo cáo ngay trên điện thoại." />
-  <meta property="og:title" content="AloBiz - Quản lý kho & bán hàng" />
-  <meta property="og:description" content="Đăng ký trải nghiệm sớm AloBiz và nhận ưu đãi khi app ra mắt." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://alobiz.vn" />
-  <meta name="theme-color" content="#3B5BFF" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AloBiz - Hóa đơn điện tử, kê khai & quản lý kinh doanh</title>
+  <meta name="description" content="AloBiz hỗ trợ hộ kinh doanh quản lý bán hàng, hóa đơn điện tử đầu vào - đầu ra, báo cáo doanh thu, kê khai và nhập liệu." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="nen-anh-sang"></div>
-
-  <header class="header">
-    <nav class="nav khung-rong">
-      <a class="logo" href="#top" aria-label="AloBiz trang chủ">
-        <span class="logo-icon">A</span>
-        <span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="AloBiz">
+        <div class="brand-icon">A</div>
+        <div>
           <strong>AloBiz</strong>
-          <small>by Nghĩa Tech</small>
-        </span>
+          <span>by Nghĩa Tech</span>
+        </div>
       </a>
-      <div class="nav-links">
+      <nav class="nav-links" aria-label="Điều hướng chính">
         <a href="#tinh-nang">Tính năng</a>
-        <a href="#uu-dai">Ưu đãi</a>
+        <a href="#dich-vu">Dịch vụ</a>
         <a href="#dang-ky">Đăng ký</a>
-      </div>
-      <a class="nut nut-phu an-mobile" href="#dang-ky">Nhận ưu đãi</a>
-    </nav>
+      </nav>
+      <a class="btn btn-light" href="#dang-ky">Nhận ưu đãi</a>
+    </div>
   </header>
 
   <main id="top">
-    <section class="hero khung-rong">
-      <div class="hero-text">
-        <div class="badge">🚀 Đang chuẩn bị mở bản trải nghiệm sớm</div>
-        <h1>Quản lý kho & bán hàng đơn giản cho hộ kinh doanh</h1>
-        <p class="mo-ta">
-          AloBiz giúp bạn theo dõi tồn kho, nhập hàng theo lô, bán hàng, công nợ,
-          hóa đơn và báo cáo ngay trên điện thoại.
-        </p>
-        <div class="hero-actions">
-          <a class="nut nut-chinh" href="#dang-ky">Đăng ký trải nghiệm sớm</a>
-          <a class="nut nut-phu" href="#tinh-nang">Xem tính năng</a>
-        </div>
-        <div class="trust-row">
-          <span>✓ Mobile-first</span>
-          <span>✓ Quản lý theo lô</span>
-          <span>✓ Dành cho hộ kinh doanh</span>
-        </div>
-      </div>
-
-      <div class="mockup-card" aria-label="Mô phỏng giao diện AloBiz">
-        <div class="mockup-top">
-          <span></span><span></span><span></span>
-        </div>
-        <div class="mockup-header">
-          <div>
-            <small>Phiếu hiện tại</small>
-            <strong>PN0031 • Sen vòi An Bình</strong>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Hỗ trợ <span>hóa đơn điện tử</span> • <span>kê khai</span> • <span>nhập liệu</span> cho hộ kinh doanh</div>
+          <h1>Bán hàng, hóa đơn điện tử & theo dõi kinh doanh trên một app duy nhất</h1>
+          <p class="hero-subtitle">
+            AloBiz giúp hộ kinh doanh quản lý bán hàng, tra cứu hóa đơn điện tử đầu vào - đầu ra, theo dõi doanh thu và <strong>hỗ trợ nhập liệu & theo dõi số liệu cho hộ kinh doanh</strong> mỗi ngày.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#dang-ky">Đăng ký trải nghiệm sớm</a>
+            <a class="btn btn-outline" href="#tinh-nang">Xem tính năng</a>
           </div>
-          <span class="tag">Đang nhập</span>
+          <div class="hero-checks">
+            <span>✓ HĐĐT đầu vào/đầu ra</span>
+            <span>✓ Báo cáo tháng/quý</span>
+            <span>✓ Kê khai thuế</span>
+            <span>✓ Hỗ trợ nhập liệu</span>
+          </div>
         </div>
-        <div class="mockup-tabs">
-          <span>Phiếu</span><span class="active">Thêm hàng</span><span>Chi tiết</span>
+
+        <div class="phone-card" aria-label="Màn hình demo AloBiz">
+          <div class="phone-top">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="app-panel">
+            <div class="app-header-row">
+              <div>
+                <small>HKD đang quản lý</small>
+                <strong>HKD Minh Phát</strong>
+              </div>
+              <span class="status-pill">HĐĐT</span>
+            </div>
+            <div class="metric-grid">
+              <div class="metric-card primary">
+                <small>Doanh thu tháng</small>
+                <strong>124.500.000đ</strong>
+                <span>+18% so với tháng trước</span>
+              </div>
+              <div class="metric-card">
+                <small>Hóa đơn đầu vào</small>
+                <strong>12</strong>
+                <span>Cần kiểm tra</span>
+              </div>
+              <div class="metric-card">
+                <small>Đầu ra</small>
+                <strong>24</strong>
+                <span>Đã phát hành</span>
+              </div>
+              <div class="metric-card warning">
+                <small>Kê khai tháng</small>
+                <strong>85%</strong>
+                <span>Đang chuẩn bị</span>
+              </div>
+            </div>
+            <div class="invoice-list">
+              <div class="invoice-row">
+                <div><b>HD00032</b><span>VLXD An Bình</span></div>
+                <em>Chờ ký số</em>
+              </div>
+              <div class="invoice-row">
+                <div><b>HD00031</b><span>Công ty Minh Phát</span></div>
+                <em class="done">Đã kê khai</em>
+              </div>
+              <div class="invoice-row">
+                <div><b>PN0031</b><span>HĐ đầu vào từ NCC</span></div>
+                <em class="check">Cần map SP</em>
+              </div>
+            </div>
+            <button class="mock-button">Xem báo cáo & hóa đơn</button>
+          </div>
         </div>
-        <div class="field"></div>
-        <div class="field short"></div>
-        <div class="summary">
-          <span>Tổng tạm tính</span>
-          <strong>2.850.000đ</strong>
-        </div>
-        <div class="mockup-button">Thêm vào phiếu</div>
       </div>
     </section>
 
-    <section id="tinh-nang" class="khung-rong section">
-      <div class="section-title">
-        <span>Tính năng chính</span>
-        <h2>Một app nhỏ gọn cho vận hành hằng ngày</h2>
-      </div>
-      <div class="grid-4">
-        <article class="feature-card">
-          <div class="icon">📦</div>
-          <h3>Quản lý kho</h3>
-          <p>Theo dõi tồn kho, nhập hàng, sinh lô hàng và kiểm soát số lượng còn lại.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon">🧾</div>
-          <h3>Bán hàng</h3>
-          <p>Tạo hóa đơn, ghi nhận thanh toán, công nợ và lịch sử giao dịch.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon">🔎</div>
-          <h3>Theo lô hàng</h3>
-          <p>Chọn lô khi bán để kiểm soát giá vốn và tối ưu lợi nhuận.</p>
-        </article>
-        <article class="feature-card">
-          <div class="icon">📊</div>
-          <h3>Báo cáo</h3>
-          <p>Xem doanh thu, tồn kho, công nợ và tình hình kinh doanh dễ hiểu.</p>
-        </article>
+    <section id="tinh-nang" class="section">
+      <div class="container">
+        <div class="section-title">
+          <span>Tính năng trọng tâm</span>
+          <h2>Giải quyết đúng việc hộ kinh doanh đang đau đầu</h2>
+          <p>Không chỉ quản lý kho và bán hàng, AloBiz tập trung vào hóa đơn điện tử, báo cáo, kê khai và số liệu vận hành.</p>
+        </div>
+        <div class="features-grid">
+          <article class="feature-card highlight-soft">
+            <div class="feature-icon">🧾</div>
+            <h3>Tra cứu HĐĐT đầu vào</h3>
+            <p>Quản lý hóa đơn đầu vào, kiểm tra NCC, tổng tiền, thuế và trạng thái xử lý.</p>
+          </article>
+          <article class="feature-card highlight-soft">
+            <div class="feature-icon">📤</div>
+            <h3>Phát hành HĐĐT đầu ra</h3>
+            <p>Theo dõi hóa đơn bán hàng, trạng thái phát hành, gửi CQT và lịch sử xử lý.</p>
+          </article>
+          <article class="feature-card highlight-soft">
+            <div class="feature-icon">📊</div>
+            <h3>Báo cáo tháng/quý</h3>
+            <p>Tổng hợp doanh thu, công nợ, tồn kho và số liệu phục vụ kê khai dễ hơn.</p>
+          </article>
+          <article class="feature-card highlight-strong">
+            <div class="feature-icon">🤝</div>
+            <h3>Ủy nhiệm nhập liệu & theo dõi kinh doanh</h3>
+            <p>Có đội ngũ hỗ trợ cập nhật số liệu, hóa đơn và theo dõi vận hành cho hộ kinh doanh.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">🔐</div>
+            <h3>Tích hợp ký số</h3>
+            <p>Hướng tới phát hành hóa đơn, ký số và kiểm soát trạng thái ngay trong hệ thống.</p>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon">📦</div>
+            <h3>Kho & bán hàng theo lô</h3>
+            <p>Theo dõi nhập hàng, giá vốn từng lô, tồn kho và lợi nhuận khi bán hàng.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="uu-dai" class="khung-rong section offer">
-      <div>
-        <span class="badge">Ưu đãi ra mắt</span>
-        <h2>50 cửa hàng đăng ký đầu tiên sẽ nhận ưu đãi giai đoạn đầu</h2>
-        <p>
-          Bạn sẽ được liên hệ khi AloBiz mở bản trải nghiệm, ưu tiên hỗ trợ setup
-          và nhận chính sách ưu đãi dành cho khách đầu tiên.
-        </p>
+    <section id="dich-vu" class="section service-section">
+      <div class="container service-box">
+        <div>
+          <span class="tag">Khác biệt của AloBiz</span>
+          <h2>Không chỉ là phần mềm, mà còn là đội hỗ trợ vận hành số liệu</h2>
+          <p>
+            Nhiều hộ kinh doanh không thiếu app, mà thiếu người theo dõi dữ liệu đều đặn. AloBiz hướng tới mô hình phần mềm kết hợp dịch vụ: <strong>hỗ trợ nhập liệu và theo dõi số liệu cho hộ kinh doanh</strong>.
+          </p>
+        </div>
+        <ul class="service-list">
+          <li>✓ Hỗ trợ nhập hóa đơn điện tử đầu vào</li>
+          <li>✓ Theo dõi doanh thu, công nợ, tồn kho</li>
+          <li>✓ Chuẩn bị số liệu báo cáo tháng/quý</li>
+          <li>✓ Đồng hành setup ban đầu cho khách sớm</li>
+        </ul>
       </div>
-      <a class="nut nut-chinh" href="#dang-ky">Giữ chỗ trải nghiệm</a>
     </section>
 
-    <section id="dang-ky" class="khung-rong section form-section">
-      <div class="form-intro">
-        <span>Đăng ký quan tâm</span>
-        <h2>Để lại thông tin, AloBiz sẽ liên hệ khi bản trải nghiệm sẵn sàng</h2>
-        <p>Form này dành cho hộ kinh doanh, cửa hàng nhỏ, đại lý hoặc người muốn test app sớm.</p>
+    <section id="dang-ky" class="section form-section">
+      <div class="container form-grid">
+        <div class="form-copy">
+          <span class="tag">Ưu đãi ra mắt</span>
+          <h2>50 hộ kinh doanh đầu tiên được ưu tiên hỗ trợ nhập liệu & setup ban đầu</h2>
+          <p>
+            Đăng ký trước để nhận ưu đãi khi AloBiz mở bản trải nghiệm. Phù hợp cho tạp hóa, shop nhỏ, đại lý, kho vật tư và hộ kinh doanh chưa có kế toán riêng.
+          </p>
+        </div>
+        <form id="leadForm" class="lead-form">
+          <label>Tên cửa hàng / hộ kinh doanh
+            <input name="ten_cua_hang" type="text" placeholder="VD: Tạp hóa Minh Phát" required />
+          </label>
+          <label>Số điện thoại
+            <input name="so_dien_thoai" type="tel" placeholder="VD: 09xxxxxxxx" required />
+          </label>
+          <label>Email
+            <input name="email" type="email" placeholder="email của bạn (không bắt buộc)" />
+          </label>
+          <label>Ngành nghề
+            <input name="nganh_nghe" type="text" placeholder="VD: tạp hóa, vật liệu, phụ kiện..." />
+          </label>
+          <label>Nhu cầu quan tâm nhất
+            <select name="nhu_cau">
+              <option value="ho_tro_nhap_lieu">Hỗ trợ nhập liệu & theo dõi số liệu</option>
+              <option value="hoa_don_dien_tu">Hóa đơn điện tử đầu vào / đầu ra</option>
+              <option value="ke_khai_thue">Báo cáo & kê khai thuế</option>
+              <option value="quan_ly_kho_ban_hang">Quản lý kho & bán hàng</option>
+              <option value="tich_hop_ky_so">Tích hợp ký số</option>
+            </select>
+          </label>
+          <button class="btn btn-primary form-submit" type="submit">Đăng ký nhận ưu đãi</button>
+          <p id="formMessage" class="form-message" role="status"></p>
+        </form>
       </div>
-
-      <form class="lead-form" id="leadForm">
-        <label>
-          Tên cửa hàng / hộ kinh doanh
-          <input name="ten_cua_hang" type="text" placeholder="VD: Cửa hàng An Bình" required />
-        </label>
-        <label>
-          Số điện thoại
-          <input name="so_dien_thoai" type="tel" placeholder="VD: 09xxxxxxxx" required />
-        </label>
-        <label>
-          Email
-          <input name="email" type="email" placeholder="VD: ban@example.com" />
-        </label>
-        <label>
-          Ngành nghề
-          <select name="nganh_nghe" required>
-            <option value="">Chọn ngành nghề</option>
-            <option>Tạp hóa / bán lẻ</option>
-            <option>Vật tư / kim khí</option>
-            <option>Thiết bị vệ sinh</option>
-            <option>Thời trang / phụ kiện</option>
-            <option>Khác</option>
-          </select>
-        </label>
-        <label class="full">
-          Ghi chú nhu cầu
-          <textarea name="ghi_chu" rows="4" placeholder="VD: Tôi cần quản lý tồn kho, công nợ, hóa đơn..."></textarea>
-        </label>
-        <button class="nut nut-chinh full" type="submit">Đăng ký nhận ưu đãi</button>
-        <p class="form-note">Thông tin chỉ dùng để liên hệ trải nghiệm AloBiz.</p>
-      </form>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="khung-rong footer-inner">
-      <div class="logo">
-        <span class="logo-icon">A</span>
-        <span><strong>AloBiz</strong><small>by Nghĩa Tech</small></span>
-      </div>
-      <p>© <span id="namHienTai"></span> AloBiz. Quản lý kho & bán hàng cho hộ kinh doanh.</p>
+    <div class="container footer-inner">
+      <strong>AloBiz</strong>
+      <span>Quản lý kho, bán hàng, hóa đơn điện tử & số liệu kinh doanh — by Nghĩa Tech</span>
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
 </body>
 </html>

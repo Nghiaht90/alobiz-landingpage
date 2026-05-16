@@ -1,91 +1,53 @@
-// ===== BAT DAU CAU HINH FORM =====
-// Cach 1: De trong neu chua cau hinh DB, form van hien thong bao thanh cong demo.
-// Cach 2: Neu muon luu vao Supabase, dien SUPABASE_URL va SUPABASE_ANON_KEY ben duoi.
-const SUPABASE_URL = '';
-const SUPABASE_ANON_KEY = '';
-const BANG_LEAD = 'landing_leads';
-// ===== KET THUC CAU HINH FORM =====
+// ===== BAT DAU CAU HINH SUPABASE =====
+// Sau khi tạo project Supabase, thay 2 giá trị bên dưới.
+const SUPABASE_URL = 'DIEN_SUPABASE_URL_CUA_BAN';
+const SUPABASE_ANON_KEY = 'DIEN_SUPABASE_ANON_KEY_CUA_BAN';
+// ===== KET THUC CAU HINH SUPABASE =====
 
-// ===== BAT DAU HAM hienThongBao =====
-function hienThongBao(noidung, loai = 'thanhcong') {
-  const toast = document.getElementById('toast');
-  toast.textContent = noidung;
-  toast.className = `toast hien ${loai === 'loi' ? 'loi' : ''}`;
-  window.clearTimeout(window.__alobizToastTimer);
-  window.__alobizToastTimer = window.setTimeout(() => {
-    toast.className = 'toast';
-  }, 3200);
+// ===== BAT DAU HAM khoiTaoFormLead =====
+const form = document.getElementById('leadForm');
+const formMessage = document.getElementById('formMessage');
+
+function hienThongBao(noidung, loi = false) {
+  formMessage.textContent = noidung;
+  formMessage.style.color = loi ? '#DC2626' : '#5B21B6';
 }
-// ===== KET THUC HAM hienThongBao =====
 
-// ===== BAT DAU HAM layDuLieuForm =====
-function layDuLieuForm(form) {
+form?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
   const data = new FormData(form);
-  return {
-    ten_cua_hang: (data.get('ten_cua_hang') || '').trim(),
-    so_dien_thoai: (data.get('so_dien_thoai') || '').trim(),
-    email: (data.get('email') || '').trim(),
-    nganh_nghe: (data.get('nganh_nghe') || '').trim(),
-    ghi_chu: (data.get('ghi_chu') || '').trim(),
+  const lead = {
+    ten_cua_hang: data.get('ten_cua_hang')?.toString().trim(),
+    so_dien_thoai: data.get('so_dien_thoai')?.toString().trim(),
+    email: data.get('email')?.toString().trim() || null,
+    nganh_nghe: data.get('nganh_nghe')?.toString().trim() || null,
+    nhu_cau: data.get('nhu_cau')?.toString().trim() || 'ho_tro_nhap_lieu',
     nguon: 'alobiz.vn',
+    trang_thai: 'moi_dang_ky',
   };
-}
-// ===== KET THUC HAM layDuLieuForm =====
 
-// ===== BAT DAU HAM guiLeadSupabase =====
-async function guiLeadSupabase(lead) {
-  if (!SUPABASE_URL || !SUPABASE_ANON_KEY) {
-    console.info('Demo lead:', lead);
-    return { demo: true };
+  if (!lead.ten_cua_hang || !lead.so_dien_thoai) {
+    hienThongBao('Vui lòng nhập tên cửa hàng và số điện thoại.', true);
+    return;
   }
 
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/${BANG_LEAD}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': SUPABASE_ANON_KEY,
-      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-      'Prefer': 'return=minimal',
-    },
-    body: JSON.stringify(lead),
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text || 'Không gửi được thông tin');
+  if (SUPABASE_URL.includes('DIEN_') || SUPABASE_ANON_KEY.includes('DIEN_')) {
+    hienThongBao('Form đã sẵn sàng. Bạn cần điền SUPABASE_URL và SUPABASE_ANON_KEY trong script.js để lưu lead thật.', true);
+    return;
   }
 
-  return { ok: true };
-}
-// ===== KET THUC HAM guiLeadSupabase =====
+  try {
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { error } = await supabase.from('landing_leads').insert([lead]);
 
-// ===== BAT DAU HAM khoiTaoLandingPage =====
-function khoiTaoLandingPage() {
-  document.getElementById('namHienTai').textContent = new Date().getFullYear();
+    if (error) throw error;
 
-  const form = document.getElementById('leadForm');
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const button = form.querySelector('button[type="submit"]');
-    const textCu = button.textContent;
-    button.disabled = true;
-    button.textContent = 'Đang gửi...';
-
-    try {
-      const lead = layDuLieuForm(form);
-      await guiLeadSupabase(lead);
-      hienThongBao('Đã ghi nhận thông tin. AloBiz sẽ liên hệ bạn khi bản trải nghiệm sẵn sàng.');
-      form.reset();
-    } catch (error) {
-      console.error(error);
-      hienThongBao('Gửi thông tin chưa thành công. Vui lòng thử lại sau.', 'loi');
-    } finally {
-      button.disabled = false;
-      button.textContent = textCu;
-    }
-  });
-}
-// ===== KET THUC HAM khoiTaoLandingPage =====
-
-khoiTaoLandingPage();
+    form.reset();
+    hienThongBao('Đăng ký thành công. AloBiz sẽ liên hệ bạn sớm!');
+  } catch (error) {
+    console.error(error);
+    hienThongBao('Chưa gửi được thông tin. Vui lòng thử lại hoặc liên hệ trực tiếp.', true);
+  }
+});
+// ===== KET THUC HAM khoiTaoFormLead =====
